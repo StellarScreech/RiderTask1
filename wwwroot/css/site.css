@@ -20,3 +20,14 @@ html {
 body {
   margin-bottom: 60px;
 }
+.form-size-sm {
+  width: 30%;
+}
+header {
+  text-align: center;
+  background-color: lightgrey;
+  height: 4rem;
+}
+footer {
+
+}
