@@ -1,23 +1,30 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using reCAPTCHA.AspNetCore;
 
 public class InfoController : Controller
 {
     private readonly ApplicationDbContext _context;
     private readonly ILogger<InfoController> _logger;
+    private readonly IRecaptchaService _recaptcha;
 
-    public InfoController(ApplicationDbContext context, ILogger<InfoController> logger)
+    public InfoController(ApplicationDbContext context, ILogger<InfoController> logger, IRecaptchaService recaptcha)
     {
         _context = context;
         _logger = logger;
+        _recaptcha = recaptcha;
     }
-    
+
     [HttpPost]
-    public async Task<IActionResult> AddContact(string firstName, string lastName, string middleName, string phoneNumber)
+    public async Task<IActionResult> AddContact(string firstName, string lastName, string middleName, string phoneNumber, string recaptcha)
     {
+        var recaptchaResult = await _recaptcha.Validate(recaptcha);
+        if (!recaptchaResult.success)
+        {
+            return BadRequest("Captcha validation failed.");
+        }
+
         _logger.LogInformation("AddContact method called with parameters: {FirstName}, {LastName}, {MiddleName}, {PhoneNumber}", firstName, lastName, middleName, phoneNumber);
 
         if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
