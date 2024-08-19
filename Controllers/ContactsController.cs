@@ -15,13 +15,13 @@ public class ContactsController : Controller
     {
         if (string.IsNullOrEmpty(fullName))
         {
-            return BadRequest("Full name cannot be null or empty.");
+            return BadRequest("Полное имя не может быть пустым.");
         }
 
         var nameParts = fullName.Split(' ');
         if (nameParts.Length < 2)
         {
-            return BadRequest("Full name must include both first name and last name.");
+            return BadRequest("Полное имя должно содержать имя и фамилию.");
         }
 
         var contact = new Contact
