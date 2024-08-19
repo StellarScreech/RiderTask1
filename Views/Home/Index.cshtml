@@ -5,13 +5,13 @@ ViewData["Title"] = "Home Page";
     <link href="css/site.css">
 </head>
 <div class="container form-size-sm mt-5">
-    <h3>Enter the data</h3>
+    <h3>Регистрационные данные</h3>
     <form class="" asp-controller="Info" asp-action="AddContact" method="post">
-        <input class="form-control mb-3" type="text" name="firstName" placeholder="First Name" />
-        <input class="form-control mb-3" type="text" name="lastName" placeholder="Last Name" />
-        <input class="form-control mb-3" type="text" name="middleName" placeholder="Middle Name" />
-        <input class="form-control mb-3" type="text" name="phoneNumber" placeholder="Phone Number" />
-        <button class="btn btn-primary" type="submit">Add Contact</button>
+        <input class="form-control mb-3" type="text" name="firstName" placeholder="Имя" />
+        <input class="form-control mb-3" type="text" name="lastName" placeholder="Фамилия" />
+        <input class="form-control mb-3" type="text" name="middleName" placeholder="Отчество" />
+        <input class="form-control mb-3" type="number" name="phoneNumber" placeholder="Номер телефона" />
+        <button class="btn btn-primary" type="submit">Зарегестрироваться</button>
     </form>
 </div>
 
