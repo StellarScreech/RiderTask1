@@ -20,40 +20,11 @@ if (!app.Environment.IsDevelopment())
 static void PrintContacts(ApplicationDbContext context)
 {
     Console.OutputEncoding = System.Text.Encoding.UTF8;
-    var contacts = context.Contacts.ToList();
+    var contacts = context.Info.ToList();
     foreach (var contact in contacts)
     {
         Console.WriteLine($"ID: {contact.Id}, Name: {contact.Name}, LastName: {contact.LastName}, MiddleName: {contact.MiddleName}, PhoneNumber: {contact.PhoneNumber}");
     }
-}
-
-// Seed the database and print contacts
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<ApplicationDbContext>();
-    context.Database.EnsureCreated();
-    if (!context.Contacts.Any())
-    {
-        context.Contacts.AddRange(
-            new Contact
-            {
-                Name = "Иван",
-                LastName = "Иванов",
-                MiddleName = "Иванович",
-                PhoneNumber = "1234567890"
-            },
-            new Contact
-            {
-                Name = "Петр",
-                LastName = "Петров",
-                MiddleName = "Петрович",
-                PhoneNumber = "0987654321"
-            }
-        );
-        context.SaveChanges();
-    }
-    PrintContacts(context);
 }
 
 app.UseHttpsRedirection();

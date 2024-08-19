@@ -7,5 +7,5 @@ public class ApplicationDbContext : DbContext
     {
     }
 
-    public DbSet<Contact> Contacts { get; set; }
+    public DbSet<Contact> Info { get; set; }
 }

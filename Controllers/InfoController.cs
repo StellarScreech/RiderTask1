@@ -4,12 +4,12 @@ using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-public class ContactsController : Controller
+public class InfoController : Controller
 {
     private readonly ApplicationDbContext _context;
-    private readonly ILogger<ContactsController> _logger;
+    private readonly ILogger<InfoController> _logger;
 
-    public ContactsController(ApplicationDbContext context, ILogger<ContactsController> logger)
+    public InfoController(ApplicationDbContext context, ILogger<InfoController> logger)
     {
         _context = context;
         _logger = logger;
@@ -36,7 +36,7 @@ public class ContactsController : Controller
             MiddleName = middleName,
             PhoneNumber = phoneNumber,
         };
-        _context.Contacts.Add(contact);
+        _context.Info.Add(contact);
         _logger.LogInformation("Contact added to context: {Contact}", contact);
 
         await _context.SaveChangesAsync();
