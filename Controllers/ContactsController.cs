@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Runtime.InteropServices.ComTypes;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 public class ContactsController : Controller
 {
@@ -28,11 +30,11 @@ public class ContactsController : Controller
         _logger.LogInformation("Received phoneNumber: {PhoneNumber}", phoneNumber);
 
         var contact = new Contact
-        {
+        {  
             Name = firstName,
             LastName = lastName,
             MiddleName = middleName,
-            PhoneNumber = phoneNumber
+            PhoneNumber = phoneNumber,
         };
         _context.Contacts.Add(contact);
         _logger.LogInformation("Contact added to context: {Contact}", contact);

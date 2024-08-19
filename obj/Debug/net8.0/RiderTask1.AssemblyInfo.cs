@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RiderTask1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c045d0ce6db65f9fdd998f3da7e532d4e6616c9d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6f4a8f2db5245abbc3eff42472e503bf949f40e")]
 [assembly: System.Reflection.AssemblyProductAttribute("RiderTask1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RiderTask1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
