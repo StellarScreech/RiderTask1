@@ -16,16 +16,16 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
-static void PrintContacts(ApplicationDbContext context)
-{
-    Console.OutputEncoding = System.Text.Encoding.UTF8;
-    var contacts = context.Info.ToList();
-    foreach (var contact in contacts)
-    {
-        Console.WriteLine($"ID: {contact.Id}, Name: {contact.Name}, LastName: {contact.LastName}, MiddleName: {contact.MiddleName}, PhoneNumber: {contact.PhoneNumber}");
-    }
-}
+//
+// static void PrintContacts(ApplicationDbContext context)
+// {
+//     Console.OutputEncoding = System.Text.Encoding.UTF8;
+//     var contacts = context.Info.ToList();
+//     foreach (var contact in contacts)
+//     {
+//         Console.WriteLine($"ID: {contact.Id}, Name: {contact.Name}, LastName: {contact.LastName}, MiddleName: {contact.MiddleName}, PhoneNumber: {contact.PhoneNumber}");
+//     }
+// }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
