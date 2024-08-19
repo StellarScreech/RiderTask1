@@ -19,15 +19,48 @@ html {
 
 body {
   margin-bottom: 60px;
-}
-.form-size-sm {
-  width: 30%;
-}
-header {
-  text-align: center;
-  background-color: lightgrey;
-  height: 4rem;
-}
-footer {
+  background-image: url(Mojave_macOS-1809967.jpg);
+  background-size: cover;
 
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+  -moz-appearance:textfield; /* Firefox */
+
+}
+
+h3 {
+  color: white;
+}
+
+.form-size-sm {
+
+  background: transparent;
+  background: rgba(0, 0, 0, 0.7);
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-size-sm-2 {
+  
+}
+
+.mother {
+  width: 60%;
+  height: 60%;
+  margin-top: 10%;
+}
+.child {
+  width: auto;
+  padding-left: 5%;
+  margin-right: 5%;
+  padding-top: 70px;
+  height: 100%;
+  padding-bottom: 40px;
 }
