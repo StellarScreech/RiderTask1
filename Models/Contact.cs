@@ -12,6 +12,9 @@ public class Contact
     [Column("lastname")]
     public string LastName { get; set; }
 
+    [Column("middlename")]
+    public string MiddleName { get; set; }
+
     [Column("phonenumber")]
     public string PhoneNumber { get; set; }
 }
