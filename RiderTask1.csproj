@@ -21,7 +21,6 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="reCAPTCHA.AspNetCore" Version="3.0.10" />
       <PackageReference Include="SQLite" Version="3.13.0" />
     </ItemGroup>
 

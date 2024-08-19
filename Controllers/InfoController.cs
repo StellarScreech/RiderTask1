@@ -1,30 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Runtime.InteropServices.ComTypes;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
-using reCAPTCHA.AspNetCore;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 public class InfoController : Controller
 {
     private readonly ApplicationDbContext _context;
     private readonly ILogger<InfoController> _logger;
-    private readonly IRecaptchaService _recaptcha;
 
-    public InfoController(ApplicationDbContext context, ILogger<InfoController> logger, IRecaptchaService recaptcha)
+    public InfoController(ApplicationDbContext context, ILogger<InfoController> logger)
     {
         _context = context;
         _logger = logger;
-        _recaptcha = recaptcha;
     }
-
+    
     [HttpPost]
-    public async Task<IActionResult> AddContact(string firstName, string lastName, string middleName, string phoneNumber, string recaptcha)
+    public async Task<IActionResult> AddContact(string firstName, string lastName, string middleName, string phoneNumber)
     {
-        var recaptchaResult = await _recaptcha.Validate(recaptcha);
-        if (!recaptchaResult.success)
-        {
-            return BadRequest("Captcha validation failed.");
-        }
-
         _logger.LogInformation("AddContact method called with parameters: {FirstName}, {LastName}, {MiddleName}, {PhoneNumber}", firstName, lastName, middleName, phoneNumber);
 
         if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
@@ -43,6 +36,8 @@ public class InfoController : Controller
             MiddleName = middleName,
             PhoneNumber = phoneNumber,
         };
+        
+        //: Add contact to context
         _context.Info.Add(contact);
         _logger.LogInformation("Contact added to context: {Contact}", contact);
 

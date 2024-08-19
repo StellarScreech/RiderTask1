@@ -1,9 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+ViewData["Title"] = "Home Page";
 }
 <head>
     <link href="css/site.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <div class="container form-size-sm mt-5">
     <h3>Enter the data</h3>
@@ -12,7 +11,15 @@
         <input class="form-control mb-3" type="text" name="lastName" placeholder="Last Name" />
         <input class="form-control mb-3" type="text" name="middleName" placeholder="Middle Name" />
         <input class="form-control mb-3" type="text" name="phoneNumber" placeholder="Phone Number" />
-        @* <div class="g-recaptcha" data-sitekey="KEY-PLACEHOLDER"></div> *@
         <button class="btn btn-primary" type="submit">Add Contact</button>
     </form>
 </div>
+
+
+@* <form asp-controller="Contacts" asp-action="AddContact" method="post"> *@
+@*     <input type="text" name="firstName" placeholder="First Name" /> *@
+@*     <input type="text" name="lastName" placeholder="Last Name" /> *@
+@*     <input type="text" name="middleName" placeholder="Middle Name" /> *@
+@*     <input type="text" name="phoneNumber" placeholder="Phone Number" /> *@
+@*     <button type="submit">Add Contact</button> *@
+@* </form> *@

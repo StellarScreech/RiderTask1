@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using reCAPTCHA.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<IRecaptchaService, RecaptchaService>();
 
 var app = builder.Build();
 
@@ -18,6 +16,16 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+//
+// static void PrintContacts(ApplicationDbContext context)
+// {
+//     Console.OutputEncoding = System.Text.Encoding.UTF8;
+//     var contacts = context.Info.ToList();
+//     foreach (var contact in contacts)
+//     {
+//         Console.WriteLine($"ID: {contact.Id}, Name: {contact.Name}, LastName: {contact.LastName}, MiddleName: {contact.MiddleName}, PhoneNumber: {contact.PhoneNumber}");
+//     }
+// }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
