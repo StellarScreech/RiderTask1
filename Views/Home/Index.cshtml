@@ -1,0 +1,15 @@
+﻿@{
+ViewData["Title"] = "Home Page";
+}
+
+<form asp-controller="Contacts" asp-action="AddContact" method="post">
+    <div class="mb-3">
+        <label for="name" class="form-label">Фио</label>
+        <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp">
+    </div>
+    <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Номер телефона</label>
+        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
