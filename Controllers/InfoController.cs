@@ -16,7 +16,7 @@ public class InfoController : Controller
     }
     
     [HttpPost]
-    public async Task<IActionResult> AddContact(string firstName, string lastName, string middleName, string phoneNumber, string carNumber, string carModel)
+    public async Task<IActionResult> AddContact(string firstName, string lastName, string middleName, string phoneNumber)
     {
         _logger.LogInformation("AddContact method called with parameters: {FirstName}, {LastName}, {MiddleName}, {PhoneNumber}", firstName, lastName, middleName, phoneNumber);
 
@@ -35,8 +35,7 @@ public class InfoController : Controller
             LastName = lastName,
             MiddleName = middleName,
             PhoneNumber = phoneNumber,
-            CarNumber = carNumber,
-            CarModel = carModel
+            
         };
         
         //: Add contact to context
