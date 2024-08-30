@@ -1,0 +1,29 @@
+@model IEnumerable<Contact>
+
+<div class="container">
+    <h2>Contacts List</h2>
+    <table class="table table-striped table-bordered bg-white">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Middle Name</th>
+            <th>Phone Number</th>
+            @* <th>Car Number</th> *@
+            @* <th>Car Model</th> *@
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var contact in Model)
+        {
+        <tr>
+            <td>@contact.Name</td>
+            <td>@contact.LastName</td>
+            <td>@contact.MiddleName</td>
+            <td>@contact.PhoneNumber</td>
+        </tr>
+        }
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="/">Back to Home</a>
+</div>
