@@ -8,4 +8,7 @@ public class Contact
     public string LastName { get; set; }
     public string MiddleName { get; set; }
     public string PhoneNumber { get; set; }
+    
+    public string CarNumber { get; set; }
+    public string CarModel { get; set; }
 }
